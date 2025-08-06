@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { Heart, Star, Upload } from "lucide-react";
+import { Heart, Star, Upload, Circle } from "lucide-react";
 import { useState, useEffect } from "react";
 import babyHero1 from "@/assets/baby-hero-1.jpg";
 import babyHero2 from "@/assets/baby-hero-2.jpg";
 import babyHero3 from "@/assets/baby-hero-3.jpg";
 import babyHero4 from "@/assets/baby-hero-4.jpg";
+import babyHero5 from "@/assets/baby-hero-5.jpg";
 
-const heroImages = [babyHero1, babyHero2, babyHero3, babyHero4];
+const heroImages = [babyHero1, babyHero2, babyHero3, babyHero4, babyHero5];
 
 export default function HeroSection() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -20,7 +21,7 @@ export default function HeroSection() {
 
   return (
     <section className="min-h-screen bg-gradient-hero relative overflow-hidden">
-      {/* Floating elements */}
+      {/* Enhanced floating elements */}
       <div className="absolute top-20 left-10 animate-float">
         <Heart className="w-6 h-6 text-accent opacity-60" />
       </div>
@@ -30,26 +31,37 @@ export default function HeroSection() {
       <div className="absolute bottom-32 left-20 animate-float" style={{animationDelay: '2s'}}>
         <Heart className="w-4 h-4 text-accent opacity-50" />
       </div>
+      
+      {/* New balloon elements */}
+      <div className="absolute top-40 left-1/4 animate-balloon" style={{animationDelay: '0.5s'}}>
+        <Circle className="w-8 h-8 text-primary opacity-20 fill-current" />
+      </div>
+      <div className="absolute top-60 right-1/3 animate-balloon" style={{animationDelay: '1.5s'}}>
+        <Circle className="w-6 h-6 text-accent opacity-25 fill-current" />
+      </div>
+      <div className="absolute bottom-20 right-10 animate-balloon" style={{animationDelay: '2.5s'}}>
+        <Circle className="w-7 h-7 text-primary-glow opacity-20 fill-current" />
+      </div>
 
       <div className="container mx-auto px-4 py-16 flex flex-col lg:flex-row items-center min-h-screen">
         {/* Content */}
         <div className="flex-1 text-center lg:text-left space-y-6 animate-fade-in">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
-            Turn a Single Baby Photo into{' '}
-            <span className="text-primary">20 Magical Memories</span>
+            Magical Baby Photos from Just One Picture{' '}
+            <span className="text-primary">— No Studio Needed</span>
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
-            Upload just one photo of your baby and receive studio-style images in hours
+            Upload one photo and receive 20 stunning AI-generated baby photos in hours.
           </p>
           
           <div className="bg-card/80 backdrop-blur-sm rounded-xl p-6 shadow-card border border-accent/20 max-w-md mx-auto lg:mx-0">
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                Only ₹299
+                Just ₹299
               </div>
               <p className="text-sm text-muted-foreground">
-                Pay only after you preview your favorite photos
+                Pay only after you preview and select your favorite photos
               </p>
             </div>
           </div>
@@ -69,7 +81,7 @@ export default function HeroSection() {
         {/* Image Gallery */}
         <div className="flex-1 mt-12 lg:mt-0 lg:ml-12">
           <div className="relative">
-            <div className="grid grid-cols-2 gap-4 animate-scale-in">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 animate-scale-in">
               {heroImages.map((image, index) => (
                 <div
                   key={index}
@@ -77,7 +89,7 @@ export default function HeroSection() {
                     index === currentImageIndex 
                       ? 'ring-4 ring-primary/50 scale-105' 
                       : 'hover:scale-102'
-                  }`}
+                  } ${index === 4 ? 'col-span-2 lg:col-span-1' : ''}`}
                 >
                   <img
                     src={image}

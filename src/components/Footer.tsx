@@ -1,4 +1,5 @@
-import { Heart, Instagram, Shield, FileText, Banknote } from "lucide-react";
+import { Heart, Shield, FileText, Banknote, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -22,41 +23,34 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="font-semibold text-lg">Legal</h3>
             <div className="space-y-2">
-              <a 
-                href="#privacy" 
+              <Link 
+                to="/privacy"
                 className="flex items-center space-x-2 text-background/80 hover:text-primary transition-colors"
               >
                 <Shield className="w-4 h-4" />
                 <span>Privacy Policy</span>
-              </a>
-              <a 
-                href="#terms" 
+              </Link>
+              <Link 
+                to="/terms"
                 className="flex items-center space-x-2 text-background/80 hover:text-primary transition-colors"
               >
                 <FileText className="w-4 h-4" />
                 <span>Terms & Conditions</span>
-              </a>
-              <a 
-                href="#refund" 
+              </Link>
+              <Link 
+                to="/refund"
                 className="flex items-center space-x-2 text-background/80 hover:text-primary transition-colors"
               >
                 <Banknote className="w-4 h-4" />
                 <span>Refund Policy</span>
-              </a>
-            </div>
-          </div>
-
-          {/* Contact & Social */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Connect</h3>
-            <div className="space-y-2">
-              <a 
-                href="#instagram" 
+              </Link>
+              <Link 
+                to="/contact"
                 className="flex items-center space-x-2 text-background/80 hover:text-primary transition-colors"
               >
-                <Instagram className="w-4 h-4" />
-                <span>Follow Us</span>
-              </a>
+                <MessageCircle className="w-4 h-4" />
+                <span>Contact</span>
+              </Link>
             </div>
             
             {/* Refund notice */}
