@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { Upload, Heart, Star } from "lucide-react";
-import babyHero1 from "@/assets/baby-hero-1.jpg";
+import { Badge } from "@/components/ui/badge";
+import { Upload, Heart, Star, Camera, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
+import babyHero1 from "@/assets/baby-hero-1.png";
 
 export default function FinalCTASection() {
   return (
@@ -21,42 +23,62 @@ export default function FinalCTASection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Content */}
             <div className="space-y-6 animate-fade-in">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-                Ready to See Your Baby in a{' '}
-                <span className="text-primary">Magical Photoshoot?</span>
+              <Badge className="bg-primary/10 text-primary border-primary/20 px-4 py-2 mb-4">
+                <Sparkles className="w-4 h-4 mr-2" />
+                Join Our First 100 Customers
+              </Badge>
+              
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground">
+                Ready to Create Your Baby's{' '}
+                <span className="text-gradient">First AI Photoshoot?</span>
               </h2>
               
-              <p className="text-lg text-muted-foreground">
-                Start with just one photo — let the magic unfold and create memories 
-                you'll treasure forever.
+              <p className="text-lg text-muted-foreground font-body leading-relaxed">
+                Be among the first parents to experience AI baby photography. 
+                Upload one photo and preview 20 unique styles before deciding.
               </p>
               
-              <div className="bg-card/80 backdrop-blur-sm rounded-xl p-6 shadow-card border border-accent/20">
-                <div className="text-center space-y-2">
-                  <div className="text-2xl font-bold text-primary">
-                    Just ₹299
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-card border border-primary/20">
+                <div className="text-center space-y-3">
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="text-3xl font-display font-bold text-primary">₹199</span>
+                    <span className="text-lg text-muted-foreground line-through">₹299</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    20 high-resolution professional photos
+                  <div className="bg-sage-green/20 text-sage-green px-3 py-1 rounded-full text-sm font-medium">
+                    33% OFF - Launch Special
+                  </div>
+                  <p className="text-sm text-muted-foreground font-body">
+                    Up to 20 high-resolution professional photos
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    Preview first • Pay only for what you love
+                    Preview all styles first • Choose your favorites • Instant download
                   </p>
                 </div>
               </div>
               
-              <Button 
-                variant="hero" 
-                size="xl" 
-                className="w-full sm:w-auto"
-              >
-                <Upload className="w-5 h-5 mr-2" />
-                Upload Baby Photo Now
-              </Button>
+              <Link to="/upload">
+                <Button 
+                  className="w-full sm:w-auto min-h-[50px] px-8 text-lg font-bold bg-gradient-premium hover:opacity-90 text-white shadow-button transition-all duration-300 hover:scale-105"
+                >
+                  <Camera className="w-5 h-5 mr-2" />
+                  Start Your Baby's Photoshoot
+                </Button>
+              </Link>
               
-              <p className="text-sm text-muted-foreground">
-                Delivered in hours • 100% secure & private
-              </p>
+              <div className="flex items-center justify-center gap-6 text-sm text-muted-foreground">
+                <div className="flex items-center gap-1">
+                  <Star className="w-4 h-4 text-primary" />
+                  <span>Launch Special</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Heart className="w-4 h-4 text-primary" />
+                  <span>Preview First</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Sparkles className="w-4 h-4 text-primary" />
+                  <span>2-Hour Delivery</span>
+                </div>
+              </div>
             </div>
 
             {/* Image */}

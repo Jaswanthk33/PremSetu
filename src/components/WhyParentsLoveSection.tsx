@@ -39,7 +39,7 @@ export default function WhyParentsLoveSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Why Parents Love Baby Photoshoot AI
+            Why Parents Love Premsetu
           </h2>
           <p className="text-lg text-accent-foreground max-w-2xl mx-auto">
             Affordable, Fast & Adorable Memories

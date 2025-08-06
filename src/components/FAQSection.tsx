@@ -49,7 +49,7 @@ export default function FAQSection() {
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to know about Baby Photoshoot AI
+            Everything you need to know about Premsetu
           </p>
         </div>
 

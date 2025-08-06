@@ -18,6 +18,11 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'display': ['Playfair Display', 'Georgia', 'Times New Roman', 'serif'],
+				'body': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+				'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif']
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -62,7 +67,10 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				'warm-coral': 'hsl(var(--warm-coral))',
+				'soft-cream': 'hsl(var(--soft-cream))',
+				'sage-green': 'hsl(var(--sage-green))'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -119,7 +127,9 @@ export default {
 			backgroundImage: {
 				'gradient-hero': 'var(--gradient-hero)',
 				'gradient-soft': 'var(--gradient-soft)',
-				'gradient-button': 'var(--gradient-button)'
+				'gradient-button': 'var(--gradient-button)',
+				'gradient-warm': 'var(--gradient-warm)',
+				'gradient-premium': 'var(--gradient-premium)'
 			},
 			boxShadow: {
 				'soft': 'var(--shadow-soft)',
