@@ -65,7 +65,10 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-background/20 mt-8 pt-8 text-center">
           <p className="text-background/60 text-sm">
-            © 2024 Premsetu. Made with {' '}
+            © 2025 PARAMANUX (OPC) PRIVATE LIMITED.
+          </p>
+          <p className="text-background/60 text-sm mt-1">
+            Made with {' '}
             <Heart className="w-4 h-4 inline text-red-500" /> {' '}
             for parents who want magical memories.
           </p>

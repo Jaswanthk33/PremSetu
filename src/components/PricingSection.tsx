@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function PricingSection() {
   return (
-    <section className="py-16 bg-background">
+    <section id="pricing" className="py-16 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-gradient mb-4">

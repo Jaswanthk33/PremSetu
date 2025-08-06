@@ -1,67 +1,8 @@
-import { ArrowLeft, Mail, MessageCircle, Phone, MapPin, Clock, AlertCircle, CheckCircle2, Headphones, FileText, Shield } from "lucide-react";
+import { ArrowLeft, MessageCircle, Phone, MapPin, Clock, AlertCircle, CheckCircle2, Mail, Shield, Headphones } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useState } from "react";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    category: "",
-    message: ""
-  });
-
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitStatus('submitting');
-    
-    // Simulate form submission
-    try {
-      // In a real implementation, you would send this to your backend
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setSubmitStatus('success');
-      
-      // Reset form after successful submission
-      setTimeout(() => {
-        setFormData({ name: "", email: "", subject: "", category: "", message: "" });
-        setSubmitStatus('idle');
-      }, 3000);
-    } catch (error) {
-      setSubmitStatus('error');
-      setTimeout(() => setSubmitStatus('idle'), 3000);
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
-  const handleSelectChange = (value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      category: value
-    }));
-  };
-
-  const inquiryCategories = [
-    { value: "general", label: "General Inquiry" },
-    { value: "technical", label: "Technical Support" },
-    { value: "billing", label: "Billing & Payments" },
-    { value: "privacy", label: "Privacy & Data Request" },
-    { value: "refund", label: "Refund Request" },
-    { value: "quality", label: "Photo Quality Issue" },
-    { value: "business", label: "Business Partnership" },
-    { value: "feedback", label: "Feedback & Suggestions" }
-  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -102,163 +43,8 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Contact Form */}
-            <div className="lg:col-span-2 space-y-6">
-              <div>
-                <h2 className="text-3xl font-display font-semibold mb-4">Send us a Message</h2>
-                <p className="text-muted-foreground">
-                  Fill out the form below with your inquiry. The more details you provide, the better we can assist you.
-                </p>
-              </div>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Full Name <span className="text-destructive">*</span>
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      placeholder="Your full name"
-                      className="h-12"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email Address <span className="text-destructive">*</span>
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      placeholder="your.email@example.com"
-                      className="h-12"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="category" className="block text-sm font-medium mb-2">
-                      Inquiry Type <span className="text-destructive">*</span>
-                    </label>
-                    <Select value={formData.category} onValueChange={handleSelectChange} required>
-                      <SelectTrigger className="h-12">
-                        <SelectValue placeholder="Select inquiry type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {inquiryCategories.map((category) => (
-                          <SelectItem key={category.value} value={category.value}>
-                            {category.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                      Subject <span className="text-destructive">*</span>
-                    </label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      type="text"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      required
-                      placeholder="Brief description of your inquiry"
-                      className="h-12"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
-                    Message <span className="text-destructive">*</span>
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    placeholder="Please provide detailed information about your inquiry. Include order numbers, error messages, or specific questions to help us assist you better."
-                    rows={6}
-                    className="resize-none"
-                  />
-                  <p className="text-xs text-muted-foreground mt-1">
-                    Minimum 20 characters. Include relevant details for faster resolution.
-                  </p>
-                </div>
-
-                {/* Data Privacy Notice */}
-                <div className="bg-muted/30 rounded-lg p-4 border border-muted">
-                  <div className="flex items-start gap-2">
-                    <Shield className="w-4 h-4 text-primary mt-0.5" />
-                    <div className="text-xs text-muted-foreground">
-                      <p className="font-medium">Privacy Notice:</p>
-                      <p>
-                        Your information is secure and will only be used to respond to your inquiry. 
-                        See our <Link to="/privacy" className="text-primary hover:underline">Privacy Policy</Link> for details.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <Button 
-                  type="submit" 
-                  className="w-full h-12 text-base font-semibold bg-gradient-premium hover:opacity-90"
-                  disabled={submitStatus === 'submitting'}
-                >
-                  {submitStatus === 'submitting' ? (
-                    "Sending Message..."
-                  ) : (
-                    <>
-                      <Mail className="w-5 h-5 mr-2" />
-                      Send Message
-                    </>
-                  )}
-                </Button>
-
-                {/* Success/Error Messages */}
-                {submitStatus === 'success' && (
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                    <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-green-600" />
-                      <p className="text-green-700 font-medium">Message sent successfully!</p>
-                    </div>
-                    <p className="text-green-600 text-sm mt-1">
-                      We'll get back to you within 2-4 hours during business hours.
-                    </p>
-                  </div>
-                )}
-
-                {submitStatus === 'error' && (
-                  <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-                    <div className="flex items-center gap-2">
-                      <AlertCircle className="w-5 h-5 text-red-600" />
-                      <p className="text-red-700 font-medium">Failed to send message</p>
-                    </div>
-                    <p className="text-red-600 text-sm mt-1">
-                      Please try again or contact us directly via email.
-                    </p>
-                  </div>
-                )}
-              </form>
-            </div>
-
-            {/* Contact Information Sidebar */}
+          <div className="max-w-4xl mx-auto">
+            {/* Contact Information */}
             <div className="space-y-6">
               <div>
                 <h2 className="text-2xl font-display font-semibold mb-4">Get in Touch</h2>
@@ -283,7 +69,7 @@ export default function Contact() {
                         href="mailto:support@premsetu.com" 
                         className="text-primary hover:underline font-medium"
                       >
-                        support@premsetu.com
+                        support@premsetu.in
                       </a>
                       <p className="text-xs text-muted-foreground mt-1">
                         Response time: 2-4 hours
@@ -303,10 +89,10 @@ export default function Contact() {
                         For urgent issues and immediate assistance
                       </p>
                       <a 
-                        href="tel:+918123456789" 
+                        href="tel:+918465862214" 
                         className="text-primary hover:underline font-medium"
                       >
-                        +91 81234 56789
+                        +91 8465862214
                       </a>
                       <p className="text-xs text-muted-foreground mt-1">
                         Available during business hours
@@ -349,61 +135,13 @@ export default function Contact() {
                       <h3 className="font-semibold mb-1">Business Address</h3>
                       <div className="text-sm text-muted-foreground">
                         Premsetu<br />
-                        Koramangala, Bangalore<br />
-                        Karnataka 560095<br />
+                        18-38-s4-343-g1, Railway Colony<br />
+                        Tirupati, Andhra Pradesh - 517501<br />
                         India
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Specialized Support */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-display font-semibold">Specialized Support</h3>
-                
-                <div className="bg-card rounded-lg p-4 border border-accent/20">
-                  <div className="flex items-center gap-3 mb-2">
-                    <FileText className="w-4 h-4 text-primary" />
-                    <span className="font-medium text-sm">Legal & Privacy</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground mb-2">
-                    Data requests, privacy concerns, legal notices
-                  </p>
-                  <a href="mailto:legal@premsetu.com" className="text-primary text-xs hover:underline">
-                    legal@premsetu.com
-                  </a>
-                </div>
-
-                <div className="bg-card rounded-lg p-4 border border-accent/20">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Headphones className="w-4 h-4 text-primary" />
-                    <span className="font-medium text-sm">Technical Issues</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground mb-2">
-                    Upload problems, download issues, processing errors
-                  </p>
-                  <a href="mailto:tech@premsetu.com" className="text-primary text-xs hover:underline">
-                    tech@premsetu.com
-                  </a>
-                </div>
-              </div>
-
-              {/* Emergency Contact */}
-              <div className="bg-destructive/5 border border-destructive/20 rounded-xl p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <AlertCircle className="w-4 h-4 text-destructive" />
-                  <span className="font-semibold text-destructive text-sm">Emergency Contact</span>
-                </div>
-                <p className="text-xs text-muted-foreground mb-2">
-                  For urgent security issues or data breaches only
-                </p>
-                <a 
-                  href="mailto:emergency@premsetu.com" 
-                  className="text-destructive text-xs hover:underline font-medium"
-                >
-                  emergency@premsetu.com
-                </a>
               </div>
 
               {/* Quick Links */}

@@ -42,7 +42,7 @@ const faqs = [
 
 export default function FAQSection() {
   return (
-    <section className="py-16 bg-gradient-soft">
+    <section id="faq" className="py-16 bg-gradient-soft">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
