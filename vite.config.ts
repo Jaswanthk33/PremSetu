@@ -24,5 +24,10 @@ import { componentTagger } from "lovable-tagger";
 
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'), // 👈 this line is required
+    },
+  },
   base: '/', // ✅ root path for custom domain
 })
