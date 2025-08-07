@@ -19,6 +19,21 @@
 
   <body>
     <div id="root"></div>
+    
+    <!-- GitHub Pages SPA redirect handler -->
+    <script>
+      // Check for redirected routes from 404.html
+      const urlParams = new URLSearchParams(window.location.search);
+      const redirectPath = urlParams.get('path');
+      
+      if (redirectPath) {
+        // Remove the path parameter from URL
+        const newUrl = window.location.pathname + window.location.hash;
+        // Replace the current history entry to restore the original URL
+        window.history.replaceState(null, '', '/' + redirectPath + window.location.search.replace('?path=' + encodeURIComponent(redirectPath), '').replace('&path=' + encodeURIComponent(redirectPath), ''));
+      }
+    </script>
+    
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
