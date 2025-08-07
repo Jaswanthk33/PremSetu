@@ -29,5 +29,5 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'), // 👈 this line is required
     },
   },
-  base: '/PremSetu/', // ✅ correct path for GitHub Pages
+  base: '/', // ✅ root path for custom domain
 })

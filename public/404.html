@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redirecting...</title>
     <script>
-      // GitHub Pages SPA redirect
+      // GitHub Pages SPA redirect for custom domain
       // Store the current path and redirect to index.html with the path as a query parameter
       const path = window.location.pathname.slice(1);
       const query = window.location.search;
-      const redirect = '/PremSetu/?' + 
+      const redirect = '/?' + 
         (path ? 'path=' + encodeURIComponent(path) : '') +
         (query ? '&' + query.slice(1) : '');
       

@@ -20,7 +20,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/PremSetu">
+      <BrowserRouter>
         <ScrollToTop />
         <Header />
         <Routes>
