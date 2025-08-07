@@ -26,12 +26,18 @@ export default function ExitIntentPopup({ onClose }: ExitIntentPopupProps) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-      <Card className="w-full max-w-lg relative animate-in zoom-in-95 duration-200">
+    <div 
+      className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
+      onClick={onClose}
+    >
+      <Card 
+        className="w-full max-w-lg relative animate-in zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
         <Button
           variant="ghost"
           size="sm"
-          className="absolute top-4 right-4 z-10"
+          className="absolute top-2 right-2 z-10 bg-white/80 hover:bg-white shadow-md"
           onClick={onClose}
         >
           <X className="w-4 h-4" />
